@@ -46,6 +46,12 @@ function clearField(input) {
 }
 </script>
 
+function restoreField(input) {
+    if (input.value === '') {
+        input.value = input.defaultValue;
+    }
+}
+</script>
 
 <form name="form"><br /><b>1 - Choisissez le type de document &agrave; citer.</b><br />  <br /><input name="typedoc" type="radio" value="Livre" onclick="
  if (this.checked) {
@@ -115,29 +121,29 @@ this.form.result7.style.display='inline';
 <table style="border-collapse: collapse; width: 450px; height: 80px;">
 <tbody>
 <tr>
-<td style="padding-top:5px;"><input size="18" value="NOM de l'auteur" title="Vide si l'auteur est anonyme." id="result" onfocus="clearField(this)" defaultValue="NOM de l'auteur" /></td>
-<td style="padding-top:5px;"><input size="18" value="Pr&eacute;nom de l'auteur" title="Vide si l'auteur est anonyme." id="result2" onfocus="clearField(this)" defaultValue="Pr&eacute;nom de l'auteur" /></td>
-<td style="padding-top:5px;"><input size="18" value="Titre du livre" id="result3" onfocus="clearField(this)" defaultvalue="Titre du livre" /></td>
+<td style="padding-top:5px;"><input size="18" value="NOM de l'auteur" title="Vide si l'auteur est anonyme." id="result" onfocus="clearField(this)" onblur=restoreField(this) defaultValue="NOM de l'auteur" /></td>
+<td style="padding-top:5px;"><input size="18" value="Pr&eacute;nom de l'auteur" title="Vide si l'auteur est anonyme." id="result2" onfocus="clearField(this)" onblur=restoreField(this) defaultValue="Pr&eacute;nom de l'auteur" /></td>
+<td style="padding-top:5px;"><input size="18" value="Titre du livre" id="result3" onfocus="clearField(this)" defaultvalue="Titre du livre" onblur=restoreField(this) /></td>
 </tr>
 <tr>
-<td style="padding-top:5px;"><input size="18" value="Titre du p&eacute;riodique" title="Par exemple Science &amp; vie junior, Wapiti..." id="result4" onfocus="clearField(this)" defaultvalue="Titre du p&eacute;riodique" /></td>
+<td style="padding-top:5px;"><input size="18" value="Titre du p&eacute;riodique" title="Par exemple Science &amp; vie junior, Wapiti..." id="result4" onfocus="clearField(this)" defaultvalue="Titre du p&eacute;riodique" onblur=restoreField(this) /></td>
 <td style="padding-top:5px;"><input size="18" value="Nom du site web" id="result5" onfocus="clearField(this)" defaultvalue="Nom du site web" /></td>
-<td style="padding-top:5px;"><input size="18" value="&Eacute;dition" title="Se trouve sur la couverture ou dans les premi&egrave;res pages du livre." id="result6" onfocus="clearField(this)" defaultvalue="&Eacute;dition"/></td>
+<td style="padding-top:5px;"><input size="18" value="&Eacute;dition" title="Se trouve sur la couverture ou dans les premi&egrave;res pages du livre." id="result6" defaultvalue="&Eacute;dition" onfocus="clearField(this)" onblur=restoreField(this) /></td>
 </tr>
 <tr>
-<td style="padding-top:5px;"><input size="18" value="Titre du chapitre" defaultValue="Titre du chapitre" id="result7" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Titre de l'article" defaultValue="Titre de l'article" id="result8" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Date de publication" defaultValue="Date de publication" title="Se trouve dans les premi&egrave;res ou derni&egrave;res pages du livre, sous la mention 'D&eacute;p&ocirc;t l&eacute;gal'." id="result9" onfocus="clearField(this)" /></td>
+<td style="padding-top:5px;"><input size="18" value="Titre du chapitre" defaultValue="Titre du chapitre" id="result7" onfocus="clearField(this)" onblur=restoreField(this) /></td>
+<td style="padding-top:5px;"><input size="18" value="Titre de l'article" defaultValue="Titre de l'article" id="result8" onfocus="clearField(this)" onblur=restoreField(this)  /></td>
+<td style="padding-top:5px;"><input size="18" value="Date de publication" defaultValue="Date de publication" title="Se trouve dans les premi&egrave;res ou derni&egrave;res pages du livre, sous la mention 'D&eacute;p&ocirc;t l&eacute;gal'." id="result9" onfocus="clearField(this)" onblur=restoreField(this) /></td>
 </tr>
 <tr>
-<td style="padding-top:5px;"><input size="18" value="Date de consultation" defaultValue="Date de consultation" title="Date exacte du jour comme '16/12/2012'." id="result10" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Num&eacute;ro" defaultValue="Num&eacute;ro" id="result11" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Nombre total de pages" defaultValue="Nombre total de pages" title="Inscrire le dernier num&eacute;ro de page imprim&eacute;." id="result12" onfocus="clearField(this)" /></td>
+<td style="padding-top:5px;"><input size="18" value="Date de consultation" defaultValue="Date de consultation" title="Date exacte du jour comme '16/12/2012'." id="result10" onfocus="clearField(this)" onblur=restoreField(this) /></td>
+<td style="padding-top:5px;"><input size="18" value="Num&eacute;ro" defaultValue="Num&eacute;ro" id="result11" onfocus="clearField(this)" onblur=restoreField(this) /></td>
+<td style="padding-top:5px;"><input size="18" value="Nombre total de pages" defaultValue="Nombre total de pages" title="Inscrire le dernier num&eacute;ro de page imprim&eacute;." id="result12" onfocus="clearField(this)" onblur=restoreField(this) /></td>
 </tr>
 <tr>
-<td style="padding-top:5px;"><input size="18" value="Pagination" defaultValue="Pagination" title="Premi&egrave;re page et derni&egrave;re page de l'article ou du chapitre, comme '12-23'." id="result13" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Adresse URL" defaultValue="Adresse URL" title="De type 'http://www.exemple.fr/page45.html'." id="result14" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Titre de la page web" defaultValue="Titre de la page web" title="Titre de la page &agrave; l'int&eacute;rieur du site web." id="result15" onfocus="clearField(this)" /></td>
+<td style="padding-top:5px;"><input size="18" value="Pagination" defaultValue="Pagination" title="Premi&egrave;re page et derni&egrave;re page de l'article ou du chapitre, comme '12-23'." id="result13" onfocus="clearField(this)" onblur=restoreField(this) /></td>
+<td style="padding-top:5px;"><input size="18" value="Adresse URL" defaultValue="Adresse URL" title="De type 'http://www.exemple.fr/page45.html'." id="result14" onfocus="clearField(this)" onblur=restoreField(this) /></td>
+<td style="padding-top:5px;"><input size="18" value="Titre de la page web" defaultValue="Titre de la page web" title="Titre de la page &agrave; l'int&eacute;rieur du site web." id="result15" onfocus="clearField(this)" onblur=restoreField(this) /></td>
 </tr>
 </tbody>
 </table>
