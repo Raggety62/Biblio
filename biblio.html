@@ -107,8 +107,8 @@ this.form.result7.style.display='inline';
 <table style="border-collapse: collapse; width: 450px; height: 80px;">
 <tbody>
 <tr>
-<td style="padding-top:5px;"><input size="18" value="NOM de l'auteur" title="Vide si l'auteur est anonyme." id="result" onfocus="clearField(this)" /></td>
-<td style="padding-top:5px;"><input size="18" value="Pr&eacute;nom de l'auteur" title="Vide si l'auteur est anonyme." id="result2" onfocus="clearField(this)" /></td>
+<td style="padding-top:5px;"><input size="18" value="NOM de l'auteur" title="Vide si l'auteur est anonyme." id="result" onfocus="clearField(this)" defaultValue="NOM de l'auteur" /></td>
+<td style="padding-top:5px;"><input size="18" value="Pr&eacute;nom de l'auteur" title="Vide si l'auteur est anonyme." id="result2" onfocus="clearField(this)" defaultValue="Pr&eacute;nom de l'auteur" /></td>
 <td style="padding-top:5px;"><input size="18" value="Titre du livre" id="result3" onfocus="clearField(this)" /></td>
 </tr>
 <tr>
@@ -142,7 +142,7 @@ N'oubliez pas de <b>mettre en forme le titre</b> : \n
 
 <script type="text/javascript">
 function clearField(input) {
-    if (input.value === input.defaultValue) {
+    if (input.value === input.getAttribute('defaultValue')) {
         input.value = '';
     }
 }
